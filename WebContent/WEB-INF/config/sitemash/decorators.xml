@@ -1,0 +1,37 @@
+<decorators defaultdir="/WEB-INF/jsp">
+	<!-- pc -->
+	<decorator name="pc" page="pc/main.jsp">
+		<pattern>/portal/pc/*</pattern>
+	</decorator>
+	<decorator name="pcapp" page="pc/mainForApp.jsp">
+		<pattern>/portal/pc/*?form=app*</pattern>
+	</decorator>
+	<decorator name="pcview" page="pc/view.jsp">
+		<pattern>/portal/pc/view/*</pattern>
+	</decorator>
+	
+	<!-- newpc -->
+	<decorator name="newpc" page="newpc/main.jsp">
+		<pattern>/portal/newpc/*</pattern>
+	</decorator>
+	<decorator name="newpcapp" page="newpc/mainForApp.jsp">
+		<pattern>/portal/newpc/*?form=app*</pattern>
+	</decorator>
+	
+	
+	<!-- mobile -->
+	<decorator name="mobile" page="mobile/main.jsp">
+		<pattern>/portal/mobile/*</pattern>
+	</decorator>
+	<decorator name="mobileapp" page="mobile/mainForApp.jsp">
+		<pattern>/portal/mobile/*?form=app*</pattern>
+	</decorator>
+	
+	<!-- newmobile -->
+	<decorator name="newmobile" page="newmobile/main.jsp">
+		<pattern>/portal/newmobile/*</pattern>
+	</decorator>
+	<decorator name="newmobileapp" page="newmobile/mainForApp.jsp">
+		<pattern>/portal/newmobile/*?form=app*</pattern>
+	</decorator>
+</decorators>

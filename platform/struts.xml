@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.convention.classes.reload" value="true"/>
+	<constant name="struts.convention.result.path" value="/WEB-INF/jsp"/>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+
+	
+	<package name="manager" extends="struts-default" namespace="/manager">
+		<interceptors>
+			<interceptor name="securityInterceptor" class="com.redstoneinfo.bh.interceptor.SecurityInterceptor"/>
+			<interceptor name="viewJsNameInterceptor" class="com.redstoneinfo.bh.interceptor.ViewJsNameInterceptor"/>
+			<interceptor-stack name="managerDefaultStack">
+				<interceptor-ref name="securityInterceptor"/>
+				<interceptor-ref name="viewJsNameInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="managerDefaultStack"/>
+		<global-results>
+			<result name="login" >/WEB-INF/jsp/manager/login.jsp</result>
+			<result name="relogin" >/WEB-INF/jsp/manager/relogin.jsp</result>
+			<result name="errorPage">/WEB-INF/jsp/portal/error.jsp</result>
+		</global-results>
+	</package>
+	
+	<package name="portal" extends="struts-default" namespace="/portal">
+		<interceptors>
+			<interceptor name="portalInterceptor" class="com.redstoneinfo.bh.interceptor.PortalInterceptor"/>
+			<interceptor name="portalSecurityInterceptor" class="com.redstoneinfo.bh.interceptor.PortalSecurityInterceptor"/>
+			<interceptor-stack name="portalDefaultStack">
+				<interceptor-ref name="portalSecurityInterceptor"/>
+				<interceptor-ref name="portalInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="portalDefaultStack"/>
+		<global-results>
+			<result name="toLogin" type="redirect">toLogin.action</result>
+			<result name="errorPage">/WEB-INF/jsp/portal/error.jsp</result>
+		</global-results>
+	</package>
+</struts>

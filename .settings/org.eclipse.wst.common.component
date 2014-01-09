@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="rsplatform">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/platform"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/business"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/thirdparty"/>
+        <property name="context-root" value="rsplatform"/>
+        <property name="java-output-path" value="/rsplatform/build/classes"/>
+    </wb-module>
+</project-modules>
